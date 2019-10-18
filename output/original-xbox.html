@@ -1,0 +1,172 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="/theme/stylesheet/style.min.css">
+
+  <link rel="stylesheet" type="text/css" href="/theme/pygments/github.min.css">
+  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/font-awesome.min.css">
+
+
+
+
+
+
+
+<meta name="author" content="Dmitriy (aka. manul) Kuzmenko" />
+<meta name="description" content="Введение X-Box original является, возможно, самой интересной и необычной консолью в своем поколении. А необычность X-Box’а заключается в его обычности! Под капотом X-Box почти обычный ПК! Добавляет сходства и наличие жесткого диска (ни PS 2, ни GameCube не имели жесткого диска), а в качестве привода служит обычный IDE DVD-ROM …" />
+<meta name="keywords" content="Microsoft, Xbox, consoles">
+
+<meta property="og:site_name" content="Another one retro-techno blog"/>
+<meta property="og:title" content="Original Xbox"/>
+<meta property="og:description" content="Введение X-Box original является, возможно, самой интересной и необычной консолью в своем поколении. А необычность X-Box’а заключается в его обычности! Под капотом X-Box почти обычный ПК! Добавляет сходства и наличие жесткого диска (ни PS 2, ни GameCube не имели жесткого диска), а в качестве привода служит обычный IDE DVD-ROM …"/>
+<meta property="og:locale" content="ru_RU"/>
+<meta property="og:url" content="/original-xbox.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2019-10-10 13:06:00+04:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="/author/dmitriy-aka-manul-kuzmenko.html">
+<meta property="article:section" content="Консоли"/>
+<meta property="article:tag" content="Microsoft"/>
+<meta property="article:tag" content="Xbox"/>
+<meta property="article:tag" content="consoles"/>
+<meta property="og:image" content="">
+
+  <title>Another one retro-techno blog &ndash; Original Xbox</title>
+
+</head>
+<body>
+  <aside>
+    <div>
+      <a href="">
+        <img src="/theme/img/profile.png" alt="" title="">
+      </a>
+      <h1><a href=""></a></h1>
+
+
+
+      <ul class="social">
+      </ul>
+    </div>
+
+
+  </aside>
+  <main>
+
+    <nav>
+      <a href="">    Home
+</a>
+
+
+
+    </nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="original-xbox">Original Xbox</h1>
+    <p>
+          Posted on Чт 10 октября 2019 in <a href="/category/konsoli.html">Консоли</a>
+
+
+    </p>
+  </header>
+
+
+  <div>
+    <h1>Введение</h1>
+<p><img alt="Xbox original itself" src="/images/1280px-Xbox-console.jpg"></p>
+<p>X-Box original является, возможно, самой интересной и необычной консолью в своем поколении. А необычность X-Box’а заключается в его обычности! Под капотом X-Box почти обычный ПК! Добавляет сходства и наличие жесткого диска (ни PS 2, ни GameCube не имели жесткого диска), а в качестве привода служит обычный IDE DVD-ROM.   </p>
+<h1>Технические характеристики</h1>
+<p><img alt="Xbox original motherboard" src="/images/xbox-original-motherboard.png"></p>
+<p>CPU: Intel Pentium III "Copermine-based" @ 733 MHz (обведен синим)
+RAM: 64 MiB DDR SDRAM @ 200 MHz (объведены зеленым)
+Storage: DVD-ROM Drive (above, left), 8 or 10 GB HDD (above, right)
+Graphics: 233 MHz nVidia NV2A Graphics Controller (по центру)
+Networking: 100 MBit Ethernet</p>
+<p>С целью сократить срок разоаботки новой консоли и уменьшить конечную стоимость инженеры Microsoft приняли решение использовать компоненты обычного ПК для аппаратной начинки консоли. X-Box original поставлялся с установленным IDE HDD объемом 10 Гб, на который нельзя было устанавливать игры, диск используется как хранилище сохранений, кэширования различный данных игр, а также содержит системное ПО - dasboard и музыкальный проигрыватель. Порты для подключения геймпадов на самом деле являются USB 1.1.</p>
+<h1>Процесс загрузки</h1>
+<p>Как и обычные x86 ПК того времени материнская плата XBox содержала микросхемы северного и южного моста со схожим функционалом. Микросхема южного моста в дополнении к своим основным функциям (звуковой процессор, поддержка USB, PCI, IDE) содержит небольшую (512 байт) область ROM памяти. С инструкций, хранящихся в этой области, начинается загрузка XBox. MCPX ROM - первичный загрузчик XBox.</p>
+<h2>Энергонезависимая память</h2>
+<ul>
+<li>MCPX ROM - небольшая (512 байт) область памяти расположенная в микросхеме южного моста, содержит код первичного загрузчика;</li>
+<li>FLASH ROM - микросхема Flash памяти емкостью 1 Мб, содержит Вторичный загразчик (2bl), сжатое и шифрованное ядро XboxOS и область с X-code инструкции интерпретируемые первичным загрузчиком, используются для инициализации оборудовани;</li>
+</ul>
+<h2>Загрузка Xbox</h2>
+<p><img alt="Xbox original dashboard" src="/images/xbox-original-dashboard.jpg"></p>
+<ol>
+<li>Первичный загрузчик - выполняет начальную инициализацию системы интерпритируя и исполняя иструкции из области с X-code, расшифровывает и передает управление Вторичному загрузчику;</li>
+<li>Вторичный загрузчик - расшифровывает, загружает в RAM и передает управление ядру XBoxOS;</li>
+<li>Ядро XBoxOS - отвечает за управление ресурсами и предоставляет HAL (Hardware Abstraction Layer) для запускаемого ПО (Dasboard или игры);</li>
+<li>Если в лотке DVD-ROM присутчтвуе диск ядро загрузит програму с DVD-диска, если нет выполнит запуск Dasboard с ЖД.  </li>
+</ol>
+<p>Если по аппаратному обеспечению X-Box сильно похож на домашний ПК своего времени то процесс загрузки - то место где X-Box очень сильно отличается от ПК. Процесс загрузки X-Box состоит из нескольких стадий:
+* Загрузчик из Secret ROM, выполняет инициализацию оборудования, проверяет целостность FLASH RAM, извлекает из FLASH RAM вторичный загрузчик и передает ему управление;
+* Вторичный загрузчик выполняет расшифровку ядра, копирует код ядра в память и передает управление ядру;
+* Ядро XboxOS проверяет наличие диска с игрой в приводе, если диск найден то запускает игру, если нет то запускает dasboard с ЖД.<br>
+Таким образом на довольно раннем этапе мы получаем загруженное в память ядро XBoxOS. Ядро исполняет только подписанный код. Эта особенность работы X-Box препятствовала возможности запуска других ОС, ведь ключа для подписи исполняемых файлов у Linux-энтузиастов не было.</p>
+<h1>XboxOS</h1>
+<p>Сначала Microsoft хотела использовать Windows как операционную систему для X-Box но очень быстро стало понятно что Windows не подходит для того чтобы обеспечить максимально быстрый старт и запуск игр. Нужно было разрабатывать отдельное решение. Таким решением стало сильно модифицированное и урезанное ядро Windows 2000. Ядро XboxOS занимает в сжатом виде ~256 Кб, в несжатом ~500 Кб. Так, например, XboxOS не поддерживает динамическую линковку, отсутствуют различные уровни привилегий, остался только уровень ядра. Все это было сделано для того чтобы предоставить играм доступ к оборудованию и снизить накладные расходы. На диске располагаются dasboard, проигрыватель, шрифты и другое прикладное ПО. Судя по всему прикладное ПО и явилось причиной добавления ЖД в конфигурацию X-Box, дело в том что dasboard довольно крупное ПО и занимает около 100 Мб дискового пространства. В качестве файловой системы используется FATX основанная на FAT32. Хотя FATX и FAT32 принадлежат к одному семейству ФС они не совместимы и компьютеры того времени, работающие под управлением различных версий Windows файловую систему X-Box’а не понимали, а энтузиасты и хакеры использовали для доступа к ФС Linux для которого необходимый драйвер вскоре появился. На ЖД нет библиотек DirectX и каких либо других вспомогательных библиотек, игры статически линковались со всеми необходимыми им библиотеками. Разделы на жестком диске:
+* С: - системный раздел, содержит dashboard
+* D: - DVD-ROM
+* E: - системный раздел, на нем хранятся сохранения игр, музыка закаченная на X-Box
+* F, G - не родные разделы, обычно создаются при замене ЖД на более емкий
+* X: Y: Z: - Это разделы кеша, там хранятся временные файлы от игры, в которая в данным момент запущена. Без них Xbox работать не будет.</p>
+<h1>Homebrew</h1>
+<p>Силами энтузиастов методом обратной разработки был создан OpenXDK - свободный SDK для разработки программ для X-Box. Для X-Box было разработано несколько альтернативных dashboard’ов которые предоставляли намного более обширный функционал чем оригинальная оболочка от Microsoft, так, например, используя альтернативную оболочку можно было устанавливать игры с дисков на HDD и другое ПО, такое как эмуляторы, получать доступ к содержимому диска по протоколу FTP и многое другое. Также альтернативные оболочки предоставляли больше информации о системе, позволяли менять регион консоли и др. Для X-Box был разработан весьма неплохой медиацентр - XBMC, портированы некоторые игры, например, DOOM.  </p>
+<h1>Запуск Linux</h1>
+<p>Из-за особенностей процесса загрузки X-Box у Linux энтузиастов было два способа запустить Linux:
+1. Перезаписать или обойти FLASH-память так чтобы первичный загрузчик никогда не загружал вточный загрузчик (2bl) и ядро XboxOS. Недостатком является невозможность дальнейшего использования X-Box original в качестве игровой приставки, что на мой взгляд делает этот прием менее полезным с практической точки зрения. Для реализации этого метода была разработана специальная версия прошивки для X-Box, которая позволяла выполнить загрузку Linux с HDD, называется прошивка Cromwell;
+2. Использовать специальный modchip, который содержит несколько версий BIOS и позволяет переключаться между ними;
+3. Заставить ядро XboxOS выполнять неподписанный код, написать спицеальную программы которая будет производить запуск Linux уже из-под запущенной XboxOS. Для реализации используя softmod. Установка дистрибутива Linux производится в существующий раздел HDD (обычно F:). Для реализации используется специальная версия Cromwell в виде исполняемого файла XBE и называется xromwell. Такой способ оставляет возможность запуска оригинальной XboxOS и я считаю что это наиболее интересный с технической точки зрения метод.</p>
+<h1>Источники</h1>
+<ul>
+<li>http://hackspot.net/XboxBlog/</li>
+<li>https://mborgerson.com/deconstructing-the-xbox-boot-rom/</li>
+<li>https://events.ccc.de/congress/2005/fahrplan/attachments/591-paper_xbox.pdf </li>
+</ul>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="/tag/microsoft.html">Microsoft</a>
+      <a href="/tag/xbox.html">Xbox</a>
+      <a href="/tag/consoles.html">consoles</a>
+    </p>
+  </div>
+
+
+
+
+
+</article>
+
+    <footer>
+<p>&copy;  </p>
+<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
+</p>    </footer>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " Another one retro-techno blog ",
+  "url" : "",
+  "image": "",
+  "description": ""
+}
+</script>
+
+</body>
+</html>
