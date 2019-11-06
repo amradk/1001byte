@@ -1,6 +1,6 @@
-Title: Процесс загрузки ПК, MBR x86
-Date: 10-18-2018 13:06
-Category: Консоли
+Title: Процесс загрузки ПК, MBR x86 часть 1
+Date: 10-21-2018 13:06
+Category: PC
 Tags: PC, MBR, boot process
 
 # Введение 

@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 
 AUTHOR = 'Dmitriy (aka. manul) Kuzmenko'
 SITENAME = 'Another one retro-techno blog'
-SITEURL = ''
+SITEURL = 'http://1001byte.ru'
 
 PATH = 'content'
 OG_LOCALE = 'ru_RU'
