@@ -1,0 +1,148 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="http://1001byte.ru/theme/stylesheet/style.min.css">
+
+  <link rel="stylesheet" type="text/css" href="http://1001byte.ru/theme/pygments/github.min.css">
+  <link rel="stylesheet" type="text/css" href="http://1001byte.ru/theme/font-awesome/css/font-awesome.min.css">
+
+
+
+
+
+
+
+<meta name="author" content="Dmitriy (aka. manul) Kuzmenko" />
+<meta name="description" content="Введение Когда я только начинал изучать устройство ПК в моем распоряжении были только различные журналы (Домашний компьютер, Мир ПР, Upgrade, ][акер, Железо прочие) и книги, обычно уже устаревшие. Работа по сбору и упорядочиванию информации из большего количества различных источников часто приводила к появлению новых вопросов одним из которых был вопрос …" />
+<meta name="keywords" content="PC, MBR, HDD">
+
+<meta property="og:site_name" content="Another one retro-techno blog"/>
+<meta property="og:title" content="Структура жесткого диска ПК"/>
+<meta property="og:description" content="Введение Когда я только начинал изучать устройство ПК в моем распоряжении были только различные журналы (Домашний компьютер, Мир ПР, Upgrade, ][акер, Железо прочие) и книги, обычно уже устаревшие. Работа по сбору и упорядочиванию информации из большего количества различных источников часто приводила к появлению новых вопросов одним из которых был вопрос …"/>
+<meta property="og:locale" content="ru_RU"/>
+<meta property="og:url" content="http://1001byte.ru/struktura-zhestkogo-diska-pk.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2019-12-06 13:06:00+04:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="http://1001byte.ru/author/dmitriy-aka-manul-kuzmenko.html">
+<meta property="article:section" content="PC"/>
+<meta property="article:tag" content="PC"/>
+<meta property="article:tag" content="MBR"/>
+<meta property="article:tag" content="HDD"/>
+<meta property="og:image" content="">
+
+  <title>Another one retro-techno blog &ndash; Структура жесткого диска ПК</title>
+
+</head>
+<body>
+  <aside>
+    <div>
+      <a href="http://1001byte.ru">
+        <img src="http://1001byte.ru/theme/img/profile.png" alt="" title="">
+      </a>
+      <h1><a href="http://1001byte.ru"></a></h1>
+
+
+
+      <ul class="social">
+      </ul>
+    </div>
+
+
+  </aside>
+  <main>
+
+    <nav>
+      <a href="http://1001byte.ru">    Home
+</a>
+
+
+
+    </nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="struktura-zhestkogo-diska-pk">Структура жесткого диска ПК</h1>
+    <p>
+          Posted on Fri 06 December 2019 in <a href="http://1001byte.ru/category/pc.html">PC</a>
+
+
+    </p>
+  </header>
+
+
+  <div>
+    <p><img alt="cylinder head sector" src="http://1001byte.ru/images/cylinder_head_sector.png"></p>
+<h1>Введение</h1>
+<p>Когда я только начинал изучать устройство ПК в моем распоряжении были только различные журналы (Домашний компьютер, Мир ПР, Upgrade, ][акер, Железо прочие) и книги, обычно уже устаревшие. Работа по сбору и упорядочиванию информации из большего количества различных источников часто приводила к появлению новых вопросов одним из которых был вопрос адрессации блоков информации на жестком диске ПК. В BIOSе своего ПК и в некотых программых для разметки я видел CHS-адрессацию в других программах использовалась LBA-адресация. Из литературы следовало что CHS это устаревший способ и будущее за LBA так почему же этот старой способ все еще присутствует в каждой второй утилите для работы с ЖД и разделами? И самое главное почему CHS так сложно устроен и как это возможно чтобы на диске было 255 головок? Ответ оказался очевиден - обратная совместимость, а подробности читайте ниже.  </p>
+<h1>Адресация CHS.</h1>
+<p>Cylinder-Head-Sector (CHS) или Цилиндр-Головка-Сектор - наиболее ранний способ адресации пространство на жестком диске. Жесткий диски, используемые в ПК, для хранения информации представляют собой набор пластин (дисков), выполненных из специального сплава с магнитными свойствами. Внутри корпуса жесткого диска расположено несколько таких пластин (обычно от 2-х до 4-х).  Поверхность пластин поделена на небольшие ячейки - сектора. Сектор является минимальной адресуемой ячейкой на жестком диске. Сектора расположены в виде концентрических окружностей - дорожек. Группа дорожек, расположенная на равном расстояние от центра, на всех сторонах всех дисков - цилиндр. Головка -  номер считывающей головки, над каждой стороной каждого диска расположена магнитная считывающая головка.  </p>
+<p>Данный способ адресации был придуман в стародавние времена, когда жесткие диски не имели встроенных контроллеров, а управлением диском занималась отдельная специальная плата. Для того чтобы успешно справляться со своей работой плата должна была знать информацию о геометрии жесткого диска т.е. количество цилиндров, секторов и головок.  </p>
+<p>Первые жесткие диски были небольшого объема (объем был невелик хотя количество головок, а соответственно и пластин могло быть намного больше, чем у современных жестких дисков) и содержали одинаковое количество секторов на всех дорожках.   </p>
+<h1>Ограничения адресации CHS.</h1>
+<p>Первая часть загрузочного процесса происходит на уровне BIOS, и подвергается ограничениям как BIOS'а так и аппаратным ограничениям физического интерфейса посредством которого жесткий диск подключался к материнской плате компьютера. Так, например, стандарт ATA (сейчас более известный как IDE) в своей первой редакции максимально поддерживал: 
+    * 255 сектора на дорожку; 
+    * 16 головок; 
+    * 65536 цилиндров; 
+    * 139.9 Гб дискового пространства. </p>
+<p>В тоже время BIOS, а точнее функция чтения данных с диска - INT 13h, имел другие ограничения: 
+    * 63 сектора на дорожку; 
+    * 255 головок; 
+    * 1024 цилиндра; 
+    * 8.4 Гб дискового пространства. </p>
+<p>Со временем как стандарт ATA, так и BIOS получили развитие, функция INT 13h получила улучшения и максимально доступный объем дискового пространства доступного для BIOS увеличился до 32-х Гб. Подобные ограничения привели к забавным цифрам в описании геометрии диска, например, никогда не выпускалось дисков с 128 пластинами (256 головок), но подобные координаты транслировались контроллером диска в действительные. </p>
+<h1>Адресация LBA.</h1>
+<p>Для преодоления ограничений CHS был придуман дрогой способ адресации секторов жесткого дика - LBA (Logical block addressing). При данном способе все сектора жесткого диска получают сквозную адресацию начиная с нуля. Текущая версия стандарта резервирует 48 бит для номера сектора что позволяет адресовать 144 Пт.</p>
+<h1>Источники</h1>
+<ul>
+<li>http://www.infocellar.com/software/ </li>
+<li>https://en.wikipedia.org/wiki/Parallel_ATA </li>
+<li>https://www.thomas-krenn.com/en/wiki/CHS_and_LBA_Hard_Disk_Addresses </li>
+</ul>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="http://1001byte.ru/tag/pc.html">PC</a>
+      <a href="http://1001byte.ru/tag/mbr.html">MBR</a>
+      <a href="http://1001byte.ru/tag/hdd.html">HDD</a>
+    </p>
+  </div>
+
+
+
+
+
+</article>
+
+    <footer>
+<p>&copy;  </p>
+<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
+</p>    </footer>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " Another one retro-techno blog ",
+  "url" : "http://1001byte.ru",
+  "image": "",
+  "description": ""
+}
+</script>
+
+</body>
+</html>

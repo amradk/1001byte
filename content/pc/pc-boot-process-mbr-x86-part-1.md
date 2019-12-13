@@ -3,6 +3,8 @@ Date: 10-21-2018 13:06
 Category: PC
 Tags: PC, MBR, boot process
 
+![big open old hard drive]({static}/images/old-hard-drive.jpg)
+
 # Введение 
 
 В данной статье рассмотрим структуру MBR   
