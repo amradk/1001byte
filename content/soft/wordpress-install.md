@@ -39,7 +39,7 @@ apt install software-properties-common python-software-properties
 у add-apt-repository есть некотороые особенности [при работе с локалями] (https://bugs.launchpad.net/ubuntu/+source/software-properties/+bug/1165569), поэтому сделаем так
 LC_ALL=C.UTF-8 add-apt-repository ppa:ondrej/php
 apt update
-apt install --no-install-recommends php7.3 php7.3-cli php7.3-common php7.3-fpm
+apt install --no-install-recommends php7.3 php7.3-cli php7.3-common php7.3-fpm php7.3-mysql
 
 ## Настройка php-fpm
 
@@ -103,6 +103,11 @@ character-set-server=utf8
 collation-server=utf8_general_ci
 skip-character-set-client-handshake
 ```
+Если вы планируете использовать версию MySQL 8.* то в конфигурационный файл необходимо добавить строчку:
+```
+default_authentication_plugin=mysql_native_password
+```
+Это связано с тем что с 8-ой версии MySQL сменил протокол авторизации пользователей на более защищенный. Wordpress пока еще не поддерживает новый тип авторизации.
 После внесения изменений нужно перезапустить mysql:
 ```
 sudo systemctl restart mysql
@@ -115,6 +120,10 @@ mysql -u root -p -e 'create database myblogdb CHARACTER SET utf8 COLLATE utf8_ge
 mysql -u root -p -e "CREATE USER 'myblog_user'@'localhost' IDENTIFIED BY 'MyPassword'"
 mysql -u root -p -e "GRANT ALL PRIVILEGES ON myblogdb.* TO 'myblog_user'@'localhost'"
 mysql -u root -p -e "FLUSH PRIVILEGES"
+```
+Если пользователь был создан в версии MySQL 8.* до того как опция ```default_authentication_plugin=mysql_native_password``` была добавлена в конфигурационный файл то для этого пользователе протогол аутентификации не будет сменен, нужно вручную сменить протокол, сделать это можно с помощью следующей команды:
+```
+ALTER USER 'myblog_user'@'localhost' IDENTIFIED WITH mysql_native_password BY 'MyPassword';
 ```
 
 ## Установка nginx
